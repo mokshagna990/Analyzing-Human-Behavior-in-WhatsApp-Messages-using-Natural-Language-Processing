@@ -1,0 +1,129 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Leveraging NLP to Uncover Human Behavioral Trends in WhatsApp Conversations </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="{% static 'layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background-color: #f0f0f0;
+    }
+
+    .bgded {
+      background-image: url('{% static 'images\02.webp' %}');
+      background-size: cover;
+      background-position: center;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    #pageintro {
+      z-index: 1;
+      position: relative;
+      padding: 20px;
+    }
+
+    .heading {
+      font-size: 2rem;
+      color: white;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+      max-width: 90%; /* Ensure heading doesn't go beyond screen */
+      word-wrap: break-word; /* Ensure text wraps properly */
+      margin-bottom: 20px;
+    }
+
+    .input100 {
+      width: 300px;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      display: block; /* Ensure inputs are displayed one after another */
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      display: block; /* Ensure button is centered and displayed below inputs */
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+
+<body id="top">
+
+<!-- Top Background Image Wrapper -->
+<div class="bgded overlay"> 
+
+  <!-- Page Intro -->
+  <div id="pageintro" class="hoc clear"> 
+    <br><br><br><br><br><br><br>
+    <h3 class="heading">Leveraging NLP to Uncover Human Behavioral Trends in WhatsApp Conversations </h3>
+
+    <!-- Form -->
+    <form action="output" method="POST" enctype="multipart/form-data" class="login100-form validate-form">
+      {% csrf_token %}
+      
+      <div>
+        <!-- Review Input Field -->
+        <div class="wrap-input100 validate-input" data-validate="Valid text is required">
+          <input class="input100" type="text" name="text" placeholder="Enter Text" style="color: black;">
+        </div>
+
+        <!-- Algorithm Selection Dropdown -->
+        <div>
+          <select class="input100" name="algo" style="color: black;">
+            <option value="xgb">XG Boost</option>
+            <option value="lgbm">Light GBM</option>
+            <option value="lstm">LSTM</option>
+          </select>
+        </div>
+
+        <!-- Submit Button -->
+        <div>
+          <button type="submit" class="btn">Predict</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</div>
+
+<!-- Back to Top -->
+<a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
+
+<!-- JAVASCRIPTS -->
+<script src="{% static 'layout/scripts/jquery.min.js' %}"></script>
+<script src="{% static 'layout/scripts/jquery.backtotop.js' %}"></script>
+<script src="{% static 'layout/scripts/jquery.mobilemenu.js' %}"></script>
+
+</body>
+</html>
